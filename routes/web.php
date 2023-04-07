@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ItemController;
+use App\Models\Category;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+$categories = Category::all();
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,3 +26,10 @@ Route::get('/2', function () {
 Route::get('/3', function () {
     return view('home');
 });
+
+
+Route::get('/4', function () {
+    return view('add_item', ['categories' => $categories]);
+});
+
+Route::post('/items', [ItemController::class, 'store'])->name('items.store');

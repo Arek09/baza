@@ -15,7 +15,7 @@ use App\Models\Category;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-$categories = Category::all();
+// $categories = Category::all();
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,10 +26,8 @@ Route::get('/2', function () {
 Route::get('/3', function () {
     return view('home');
 });
-
-
-Route::get('/4', function () {
-    return view('add_item', ['categories' => $categories]);
-});
+$categories = "test";
+$test;
+Route::get('/4',  [ItemController::class, 'create']);
 
 Route::post('/items', [ItemController::class, 'store'])->name('items.store');

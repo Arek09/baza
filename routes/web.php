@@ -23,11 +23,15 @@ Route::get('/', function () {
 Route::get('/2', function () {
     return view('login');
 });
-Route::get('/3', function () {
-    return view('home');
-});
+
 $categories = "test";
 $test;
 Route::get('/4',  [ItemController::class, 'create']);
 
 Route::post('/items', [ItemController::class, 'store'])->name('items.store');
+
+Route::get('/3',  [ItemController::class, 'show'])->name('start');
+
+Route::get('/products/{id}', [ItemController::class, 'delete'])->name('products.destroy');
+
+Route::post('/update/{id}', [ItemController::class, 'update'])->name('items.update');

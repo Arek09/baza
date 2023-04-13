@@ -7,7 +7,7 @@
 
 
     <div class="d-flex justify-content-center">
-        <form method="POST" action="{{ route('items.store') }}">
+        <form method="POST" action="{{ route('items.update') }}">
             @csrf
           
             <div class="mb-3">
@@ -24,7 +24,7 @@
               <label for="category" class="form-label">Kategoria</label>
               <select class="form-select" id="category" name="category_id">
                 <option value="">Wybierz kategorię lub dodaj nową</option>
-          
+                
                 @if($categories->isEmpty())
                   <option disabled>Brak kategorii</option>
                 @else
@@ -41,7 +41,7 @@
               <input type="text" class="form-control" id="new_category" name="new_category">
             </div>
           
-            <button type="submit" class="btn btn-primary">Dodaj przedmiot</button>
+            <button type="submit" class="btn btn-primary">Aktualizuj przedmiot</button>
           </form>
           
           

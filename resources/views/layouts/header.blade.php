@@ -7,7 +7,7 @@
         </a>
         <ul class="dropdown-menu text-small shadow " style="">
           <li><a class="dropdown-item active " href="#" aria-current="page">Overview</a></li>
-          <li><a class="dropdown-item" href="#">Inventory</a></li>
+          <li><a class="dropdown-item" href="/4">Dodaj przedmiot</a></li>
           <li><a class="dropdown-item" href="#">Customers</a></li>
           <li><a class="dropdown-item" href="#">Products</a></li>
           <li><hr class="dropdown-divider"></li>
@@ -20,9 +20,9 @@
       <div class="d-flex align-items-center ">
         <div class="nav col-11 ">
             <ul class="nav col-12 bgh">
-                <li><a href="#" class="nav-link px-2 link-active">Overview</a></li>
-                <li><a href="#" class="nav-link px-2 link-body-emphasis">Inventory</a></li>
-                <li><a href="#" class="nav-link px-2 link-body-emphasis">Customers</a></li>
+                <li><a href="/3" class="nav-link px-2 link-active">Start</a></li>
+                <li><a href="/4" class="nav-link px-2 link-body-emphasis">Dodaj przedmiot</a></li>
+                <li><a href="#" class="nav-link px-2 link-body-emphasis">Kategorie</a></li>
                 <li><a href="#" class="nav-link px-2 link-body-emphasis">Products</a></li>
                 <li><a href="#" class="nav-link px-2 link-body-emphasis">Products</a></li>
                 <li><a href="#" class="nav-link px-2 link-body-emphasis">Products</a></li>

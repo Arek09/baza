@@ -2,17 +2,66 @@
 
 @section('body')
 
+{{-- <style>
+table tbody tr {
+  display: none;
+}
 
+table tbody tr.show {
+  display: table-row;
+}
 
+</style> --}}
+{{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css"> --}}
 <body>
-    @extends('layouts.header')
+  @include('layouts.header')
     <div class="container-fluid pb-3">
         <div class="d-grid gap-3" style="grid-template-columns: 1fr 3fr;">
           <div class="bg-body-tertiary border rounded-3">
-            <br><br><br><br><br><br><br><br><br><br>
+            <div class="container">
+              <h2 class="p-3">Kategorie</h2>
+              <div id="accordion" class="p-3">
+                @foreach($categories as $category)
+                  <div class="card" style="margin-bottom: 10px;">
+                    <div class="card-header" id="heading{{$category->id}}">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link" style="text-transform: uppercase;text-decoration:none;color:black;" data-toggle="collapse" data-target="#collapse{{$category->id}}" aria-expanded="true" aria-controls="collapse{{$category->id}}">
+                          {{$category->name}}
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapse{{$category->id}}" class="collapse" aria-labelledby="heading{{$category->id}}" data-parent="#accordion">
+                      <div class="card-body">
+                        <table class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th>ID</th>
+                              <th>Nazwa</th>
+                              <th>Opis</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            @foreach($category->items as $item)
+                              <tr>
+                                <td>{{ $item->id }}</td>
+                                <td>{{ $item->name }}</td>
+                                <td>{{ $item->description }}</td>
+                              </tr>
+                            @endforeach
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                @endforeach
+              </div>
+            </div>
+            
           </div>
-          <div class="bg-body-tertiary border rounded-3">
-            <table class="table table-striped">
+          <div class="bg-body-tertiary border rounded-3 p-3">
+            <table id="myTable" class="table table-striped">
+          
+              
               <thead>
                 <tr>
                   <th>#</th>
@@ -141,6 +190,15 @@
                
               });
               </script>
+        <!-- Dodanie skryptów DataTables -->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+        
+        <script type="text/javascript">
+          $(document).ready(function() {
+            $('#myTable').DataTable();
+          });
+        </script>
 
 @stop
 

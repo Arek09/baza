@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('quantity');
+            $table->string('image');
             $table->unsignedBigInteger('category_id'); //klucz obcy
             $table->timestamps();
         });
